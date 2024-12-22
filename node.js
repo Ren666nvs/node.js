@@ -1,5 +1,7 @@
 // console.log('hello');
 
+const { sourceMapsEnabled } = require("process");
+
 // const { log } = require('console');
 // const fs = require('fs');
 
@@ -222,9 +224,7 @@
 // console.log(all);
 
 
-
-var player = require('play-sound')(opts = {})
-
+import player from "play-sound";
 // $ mplayer foo.mp3 
 player.play('foo.mp3', function(err){
   if (err) throw err
@@ -241,9 +241,11 @@ player.play('foo.mp3', { afplay: ['-v', 1 ] /* lower volume for afplay on OSX */
 })
 
 // access the node child_process in case you need to kill it on demand
-var audio = player.play('foo.mp3', function(err){
-  if (err && !err.killed) throw err
-})
+
+const audio = player().play('foo.mp3', function(err) {
+  if (err) throw err;
+});
+
 audio.kill()
 console.log(player);
 
