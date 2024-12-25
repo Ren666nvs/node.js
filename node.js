@@ -194,58 +194,34 @@ const { sourceMapsEnabled } = require("process");
 
 //const profiles = Useprofile(2);
 //console.log(profiles);
-// const pokemon = require('pokemon');
+//  const pokemon = require('pokemon');
+import pokemon from "pokemon";
+export const printTexts = () => {
+pokemon.all();
+//=> ['Bulbasaur', …]
 
-// pokemon.all();
-// //=> ['Bulbasaur', …]
+pokemon.random();
+//=> 'Snorlax'
 
-// pokemon.random();
-// //=> 'Snorlax'
+pokemon.getName(147);
+//=> 'Dratini'
 
-// pokemon.getName(147);
-// //=> 'Dratini'
-
-// pokemon.getId('Dratini');
-// //=> 147
-
-
-// import pokemon from "pokemon";
-// const all = pokemon.all();
-// //=> ['Bulbasaur', …]
-
-// pokemon.random();
-// //=> 'Snorlax'
-
-// pokemon.getName(147);
-// //=> 'Dratini'
-
-// const dratini = pokemon.getId("Dratini");
-// //=> 147
-// console.log(all);
+pokemon.getId('Dratini');
+//=> 147
 
 
-import player from "play-sound";
-// $ mplayer foo.mp3 
-player.play('foo.mp3', function(err){
-  if (err) throw err
-})
 
-// { timeout: 300 } will be passed to child process
-player.play('foo.mp3', { timeout: 300 }, function(err){
-  if (err) throw err
-})
+const all = pokemon.all();
+//=> ['Bulbasaur', …]
 
-// configure arguments for executable if any
-player.play('foo.mp3', { afplay: ['-v', 1 ] /* lower volume for afplay on OSX */ }, function(err){
-  if (err) throw err
-})
+pokemon.random();
+//=> 'Snorlax'
 
-// access the node child_process in case you need to kill it on demand
+pokemon.getName(147);
+//=> 'Dratini'
 
-const audio = player().play('foo.mp3', function(err) {
-  if (err) throw err;
-});
-
-audio.kill()
-console.log(player);
+const dratini = pokemon.getId("Dratini");
+//=> 147
+console.log(all);
+}
 
